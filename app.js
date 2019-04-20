@@ -11,7 +11,8 @@ const app = ()=>{
     sounds.forEach(sound =>{
         sound.addEventListener('click',function(){
             song.src = this.getAttribute('data-sound');
-            video.src = this.getAttribute('data-video');
+            //video.src = this.getAttribute('data-video');
+            document.querySelector('body').style.backgroundImage = `url(${this.getAttribute('data-img')})`;
             checkPlayed(song);
         });
     });
@@ -46,11 +47,11 @@ const app = ()=>{
     const checkPlayed = song=>{
         if(song.paused){
             song.play();
-            video.play();
+            //video.play();
             play.src = './svg/pause.svg';
         }else{
             song.pause();
-            video.pause();
+            //video.pause();
             play.src = './svg/play.svg';
         }
     }
@@ -71,7 +72,7 @@ const app = ()=>{
             song.pause();
             song.currentTime = 0;
             play.src = './svg/play.svg';
-            video.pause();
+            //video.pause();
         }
     }
     
